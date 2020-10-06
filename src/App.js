@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Employee from './components/Employee.js'
+import ResultList from './components/ResultList';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       </header>
       <body>
         <Employee />
+        <ResultList />
       </body>
     </div>
   );

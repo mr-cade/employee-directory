@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function employee() {
-    return (
+export default function Employee() {
+    return (        
         <div className="card">
             Card Placeholder            
         </div>
