@@ -1,11 +1,23 @@
 import axios from "axios";
 
-const BASEURL = "https://randomuser.me/api/";
-// const APIKEY = "&api_key=dc6zaTOxFJmzC&limit=20";
+const BASEURL = "https://randomuser.me/api/results=100";
 
-// Export an object with a "search" method that searches the for the passed query
+// Export an object with a 
 export default {
-  search: function(query) {
-    return axios.get(BASEURL + query);
+  fetchUsers: function() {
+    return axios.get(BASEURL)
+    .then(res => {
+      const results = res.data;
+      return results.map(user => {
+        return {
+          login: results.login.username,
+          name: results.name.first,
+          image: results.picture.medium,
+          email: results.email
+        };
+      });
+    }).catch(err => {
+      console.log(err)
+    }), [];
   }
 };
