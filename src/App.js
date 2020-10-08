@@ -9,7 +9,7 @@ function App() {
   const [users, setUsers] = useState([]);
   // When the component mounts, a call will be made to get random users.
   useEffect(() => {
-    this.loadUsers();
+    loadUsers();
   }, []);
 
   // function loadUsers() {
@@ -18,10 +18,22 @@ function App() {
   //   setUsers(data)
   // }
 
-  loadUsers = () => {
-    API.fetchUsers().then(users => {
-      console.log("users: " + users)
+  function loadUsers ()  {
+    API.fetchUsers().then(res => {
+      console.log("users: ", res)
+      const results = res.data.results;
+      console.log("res.data: ", results)
+       let users =results.map(user => {
+          console.log(user.login.username)
+          return {
+              login: user.login.username,
+              name: user.name.first,
+              image: user.picture.medium,
+              email: user.email
+          };      
+      });
       setUsers(users)
+   
     })
   }
 
@@ -39,3 +51,4 @@ function App() {
 }
 
 export default App;
+
