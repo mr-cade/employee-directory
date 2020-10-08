@@ -1,3 +1,4 @@
+import userEvent from "@testing-library/user-event";
 import React from "react";
 import API from "../utils/API"
 // import res from "../utils/seed.json"
@@ -14,19 +15,9 @@ function ResultList(props) {
         </li>
       ))} */}
 
-      <h1>TESTING</h1>
+    <h1>{props.login}</h1>
     </ul>
   );
 }
 
 export default ResultList;
-
-// function populate() {
-//   return res
-// }
-
-function randomPopulate(query) {
-  API.search(query)
-    .then(res => this.setState({ results: res.data.data }))
-    .catch(err => console.log(err));
-};
