@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component, useEffect, useState } from 'react';
+import { HashRouter, Route, Link } from "react-router-dom";
 import './App.css';
 import Employee from './components/Employee.js'
 import ResultList from './components/ResultList';
@@ -32,6 +33,21 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h2>OMISS Members</h2>
+        <HashRouter basename='/'>
+          
+          {/* PAGE LINKS HERE for hashrouter (NOT NEEDED?)++++++++++++++++++++++++++++++++++++++++++++++++++ */}
+          {/* <div className="nav">
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">About</Link></li>
+            </ul>
+            <hr />
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+          </div> */}
+          {/* PAGE LINKS HERE for hashrouter (NOT NEEDED?)++++++++++++++++++++++++++++++++++++++++++++++++++ */}
+
+        </HashRouter>
       </header>
       <body>
         <Employee />
@@ -41,6 +57,7 @@ function App() {
     </div>
   );
 }
-
+const Home = () => <div><p></p></div>
+const About = () => <div><p></p></div>
 export default App;
 
