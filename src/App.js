@@ -1,4 +1,3 @@
-import userEvent from '@testing-library/user-event';
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Employee from './components/Employee.js'
@@ -12,38 +11,31 @@ function App() {
     loadUsers();
   }, []);
 
-  // function loadUsers() {
-  //   const data = API.fetchUsers()
-  //   console.log("users: " + data)
-  //   setUsers(data)
-  // }
-
-  function loadUsers ()  {
+  function loadUsers() {
     API.fetchUsers().then(res => {
-      console.log("users: ", res)
       const results = res.data.results;
-      console.log("res.data: ", results)
-       let users =results.map(user => {
-          console.log(user.login.username)
-          return {
-              login: user.login.username,
-              name: user.name.first,
-              image: user.picture.medium,
-              email: user.email
-          };      
+      let users = results.map(user => {
+        console.log(user.login.username)
+        return {
+          login: user.login.username,
+          name: user.name.first,
+          image: user.picture.medium,
+          email: user.email
+        };
       });
       setUsers(users)
-   
+      console.log(users)
     })
   }
 
   return (
     <div className="App">
       <header className="App-header">
-
+        <h2>OMISS Members</h2>
       </header>
       <body>
         <Employee />
+        <ResultList />
         {/* <ResultList login={users.login.username} /> */}
       </body>
     </div>

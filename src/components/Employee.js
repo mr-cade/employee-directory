@@ -3,7 +3,7 @@ import React from 'react'
 export default function Employee() {
     return (        
         <div className="card">
-            Card Placeholder            
+            <h1>Directory</h1>            
         </div>
     )
 }
