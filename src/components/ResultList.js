@@ -5,8 +5,19 @@ import "./table.css"
 // import res from "../utils/seed.json"
 
 function ResultList(props) {
+  const userMap = props.users.map(el => {
+    return (
+      <tr>
+          <td scope="row">{el.image}</td>
+          <td>{el.name}</td>
+          <td>{el.login}</td>
+          <td>{el.email}</td>
+        </tr>
+    )
+  })
+  
   return (
-    <table class="table">
+    <table className="table">
       <thead>
         <tr>
           <th></th>
@@ -16,18 +27,7 @@ function ResultList(props) {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td scope="row">Image Here</td>
-          <td>Name1</td>
-          <td>Username1</td>
-          <td>email1@test.com</td>
-        </tr>
-        <tr>
-        <td scope="row">Image2 Here</td>
-          <td>Name2</td>
-          <td>Username2</td>
-          <td>email2@test.com</td>
-        </tr>
+        {userMap}
       </tbody>
     </table>
   );

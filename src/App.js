@@ -15,17 +15,17 @@ function App() {
   function loadUsers() {
     API.fetchUsers().then(res => {
       const results = res.data.results;
+      console.log(res)
       let users = results.map(user => {
-        console.log(user.login.username)
         return {
           login: user.login.username,
           name: user.name.first,
-          image: user.picture.medium,
+          image: user.picture.thumbnail,
           email: user.email
         };
       });
       setUsers(users)
-      console.log(users)
+      console.log("saved user data: ", users)
     })
   }
 
@@ -34,7 +34,7 @@ function App() {
       <header className="App-header">
         <h2>OMISS Members</h2>
         <HashRouter basename='/'>
-          
+
           {/* PAGE LINKS HERE for hashrouter (NOT NEEDED?)++++++++++++++++++++++++++++++++++++++++++++++++++ */}
           {/* <div className="nav">
             <ul>
@@ -49,11 +49,11 @@ function App() {
 
         </HashRouter>
       </header>
-      <body>
+      <main>
         <Employee />
-        <ResultList />
-        {/* <ResultList login={users.login.username} /> */}
-      </body>
+        {/* <ResultList /> */}
+        <ResultList users={users}/>
+      </main>
     </div>
   );
 }
