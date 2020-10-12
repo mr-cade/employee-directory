@@ -1,29 +1,42 @@
-import userEvent from "@testing-library/user-event";
 import React from "react";
-import API from "../utils/API"
 import "./table.css"
-// import res from "../utils/seed.json"
 
 function ResultList(props) {
   const userMap = props.users.map(el => {
     return (
       <tr>
-          <td scope="row">{el.image}</td>
-          <td>{el.name}</td>
+          <td scope="row"><img alt="profile" src={el.image}></img></td>
+          <td>{el.fName} {el.lName}</td>
           <td>{el.login}</td>
           <td>{el.email}</td>
         </tr>
     )
   })
-  
+
   return (
     <table className="table">
       <thead>
         <tr>
-          <th></th>
-          <th>Name</th>
-          <th>Username</th>
-          <th>email</th>
+          <th>
+            <button type="button">
+            Photo
+            </button>
+          </th>
+          <th>
+            <button type="button">
+            Name
+            </button>
+          </th>
+          <th>
+            <button type="button">
+            Username
+            </button>
+          </th>
+          <th>
+            <button type="button">
+            email
+            </button>
+          </th>
         </tr>
       </thead>
       <tbody>

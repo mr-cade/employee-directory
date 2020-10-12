@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASEURL = "https://randomuser.me/api/?results=11";
+const BASEURL = "https://randomuser.me/api/?results=100";
 
 // Export an object with a 
 export default {

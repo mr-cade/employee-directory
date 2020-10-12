@@ -15,17 +15,16 @@ function App() {
   function loadUsers() {
     API.fetchUsers().then(res => {
       const results = res.data.results;
-      console.log(res)
       let users = results.map(user => {
         return {
           login: user.login.username,
-          name: user.name.first,
+          fName: user.name.first,
+          lName: user.name.last,
           image: user.picture.thumbnail,
           email: user.email
         };
       });
       setUsers(users)
-      console.log("saved user data: ", users)
     })
   }
 
@@ -51,7 +50,6 @@ function App() {
       </header>
       <main>
         <Employee />
-        {/* <ResultList /> */}
         <ResultList users={users}/>
       </main>
     </div>
