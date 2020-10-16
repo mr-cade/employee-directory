@@ -40,7 +40,9 @@ function ResultList(props) {
         </tr>
       </thead>
       <tbody>
+        {/* . TABLE ARRAY OF USERS INSERTED HERE */}
         {userMap}
+        {/* ^ TABLE ARRAY OF USERS INSERTED HERE */}
       </tbody>
     </table>
   );
